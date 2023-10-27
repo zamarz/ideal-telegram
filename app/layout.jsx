@@ -1,0 +1,28 @@
+import "@styles/globals.css";
+import Nav from "@components/Nav";
+import UserAuthContextProvider from "@components/Provider";
+
+export const metadata = {
+  title: "Bookflix",
+  description: "Find books with AI",
+};
+
+const RootLayout = ({ children }) => {
+  return (
+    <html lang="en">
+      <body>
+        <UserAuthContextProvider>
+          <div>
+            <div />
+          </div>
+          <main>
+            <Nav />
+            {children}
+          </main>
+        </UserAuthContextProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
