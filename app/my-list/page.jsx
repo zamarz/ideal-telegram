@@ -8,6 +8,7 @@ const MyBookList = () => {
 
   const [books, setBooks] = useState([]);
   //not sure whether this will be an array - depends on how books come back
+  //this page will hold a list of books that have been saved to a user's collection
 
   return (
     <div>

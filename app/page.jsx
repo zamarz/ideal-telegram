@@ -1,4 +1,4 @@
-import Feed from "@components/Feed";
+import Form from "@components/Form";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <p>
         Use this open-source tool to search for books and add them to a wishlist
       </p>
-      <Feed />
+      <Form />
     </section>
   );
 };
