@@ -1,7 +1,6 @@
-import BookCard from "./BookCard";
+import BookCard from "./BookCardMain";
 
 const HomeBookList = ({ books }) => {
-  console.log(books);
   return (
     <div>
       {books.length > 0 ? (

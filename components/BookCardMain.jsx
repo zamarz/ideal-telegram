@@ -7,23 +7,23 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "@utils/database";
 import { useUserAuth } from "./Provider";
 
-const BookCard = ({ book }) => {
-  const [saveBook, setSaveBook] = useState({});
-  //am i using this?
+const BookCardMain = ({ book }) => {
   const user = useUserAuth();
 
   const addBook = async (e) => {
     e.preventDefault();
-    //wasn't accepting description below - doesn't load for some reason
+    //wasn't accepting description key below - doesn't load for some reason
     try {
       return await addDoc(collection(db, "books"), {
         title: book.volumeInfo.title,
         subtitle: book.volumeInfo.subtitle || null,
+        description: book.volumeInfo.description || null,
         date: book.volumeInfo.publishedDate,
-        author: book.volumeInfo.authors[0],
+        author: book.volumeInfo.authors[0] || null,
         booklink: book.volumeInfo.infoLink,
         bookimage: book.volumeInfo.imageLinks.thumbnail || null,
         user_id: user.user.uid,
+        book_id: book.id,
       }).then(() => {
         console.log("Book saved");
         //will need to inform user of this on frontend
@@ -32,6 +32,7 @@ const BookCard = ({ book }) => {
       console.log(error);
     }
   };
+
   return (
     <div>
       <div>
@@ -48,8 +49,13 @@ const BookCard = ({ book }) => {
         <h2>{book.volumeInfo.title}</h2>
         <h3>{book.volumeInfo.subtitle}</h3>
         <h3>Published in {book.volumeInfo.publishedDate}</h3>
-        <h3>Author: {book.volumeInfo.authors[0]}</h3>
-        <p>{book.volumeInfo.desciption}</p>
+        <h3>
+          Author:{" "}
+          {book.volumeInfo.authors[0] === undefined
+            ? "Unknown"
+            : book.volumeInfo.authors[0]}
+        </h3>
+        <p>{book.volumeInfo.description}</p>
         <Link href={book.volumeInfo.infoLink}>Learn more</Link>
         <button onClick={addBook}>Add to your list</button>
       </div>
@@ -60,4 +66,4 @@ const BookCard = ({ book }) => {
 //might be able to reuse this component on the homepage as well as the my list page
 //description not showing for some reason
 
-export default BookCard;
+export default BookCardMain;
