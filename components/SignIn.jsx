@@ -1,15 +1,19 @@
 "use client";
 import { logIn } from "@utils/functions";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-const SignIn = () => {
+const SignInUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const loggingIn = (e) => {
     e.preventDefault();
     logIn(email, password)
-      .then(() => {})
+      .then(() => {
+        router.push("/");
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -40,4 +44,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignInUser;

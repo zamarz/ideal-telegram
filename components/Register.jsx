@@ -2,12 +2,14 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/database";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const router = useRouter();
 
   const validatePassword = () => {
     let isValid = true;
@@ -28,6 +30,7 @@ const Register = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
+          router.push("/");
         })
         .catch((error) => {
           const errorCode = error.code;

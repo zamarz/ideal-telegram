@@ -1,9 +1,9 @@
-import React from "react";
+import SignInUser from "@components/SignIn";
 
 const SignIn = () => {
   return (
     <div>
-      <SignIn />
+      <SignInUser />
     </div>
   );
 };
