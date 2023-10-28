@@ -12,10 +12,10 @@ const Nav = () => {
       {user.user ? (
         <div>
           <div>
-            <Link href="/create-prompt">Create prompt</Link>
+            <Link href="/">Home</Link>
           </div>
           <div>
-            <Link href="/my-list">My List</Link>
+            <Link href="/my-list">My Book List</Link>
           </div>
           <div>
             <button type="button" onClick={logOut}>
