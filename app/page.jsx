@@ -1,5 +1,4 @@
 import Feed from "@components/Feed";
-import Register from "@components/Register";
 
 const Home = () => {
   return (
@@ -13,7 +12,6 @@ const Home = () => {
         Use this open-source tool to search for books and add them to a wishlist
       </p>
       <Feed />
-      <Register />
     </section>
   );
 };

@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 
 export function logIn(email, password) {

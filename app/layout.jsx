@@ -3,8 +3,8 @@ import Nav from "@components/Nav";
 import UserAuthContextProvider from "@components/Provider";
 
 export const metadata = {
-  title: "Bookflix",
-  description: "Find books with AI",
+  title: "AI Books",
+  description: "Search for books with AI",
 };
 
 const RootLayout = ({ children }) => {

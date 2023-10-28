@@ -5,14 +5,6 @@ import { logIn, signUp, logOut, googleSignIn } from "../utils/functions";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@utils/database";
 
-// import { SessionProvider } from "next-auth/react";
-
-// const Provider = ({ children, session }: any) => {
-//   return <SessionProvider session={session}>{children}</SessionProvider>;
-// };
-
-// export default Provider;
-
 const userAuthContext = createContext();
 
 export function useUserAuth() {
@@ -23,12 +15,18 @@ const UserAuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
+    const userLoggedIn = onAuthStateChanged(auth, (currentuser) => {
       console.log("Auth", currentuser);
+
       setUser(currentuser);
+      if (currentuser) {
+        console.log(currentuser.email + " is logged in!");
+      } else {
+        console.log("User is logged out!");
+      }
     });
     return () => {
-      unsubscribe();
+      userLoggedIn();
     };
   }, []);
 
