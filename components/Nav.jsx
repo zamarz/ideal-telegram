@@ -1,6 +1,6 @@
 "use client";
 
-import { logOut } from "@utils/functions";
+import { googleSignIn, logOut } from "@utils/functions";
 import { useUserAuth } from "./Provider";
 import Link from "next/link";
 
@@ -23,7 +23,10 @@ const Nav = () => {
             </button>
           </div>
           <div>
-            <p>{user.user.email} is currently signed in</p>
+            <p>
+              {user.user.displayName ? user.user.displayName : user.user.email}{" "}
+              is currently signed in
+            </p>
           </div>
         </div>
       ) : (
@@ -33,6 +36,11 @@ const Nav = () => {
           </div>
           <div>
             <Link href="/register">Register</Link>
+          </div>
+          <div>
+            <button type="button" onClick={googleSignIn}>
+              Google Sign In
+            </button>
           </div>
         </div>
       )}
