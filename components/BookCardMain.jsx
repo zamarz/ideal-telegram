@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, setDoc, doc } from "firebase/firestore";
 import { db } from "@utils/database";
 import { useUserAuth } from "./Provider";
 
@@ -14,7 +14,7 @@ const BookCardMain = ({ book }) => {
     e.preventDefault();
     //wasn't accepting description key below - doesn't load for some reason
     try {
-      return await addDoc(collection(db, "books"), {
+      return await setDoc(doc(db, "books", book.id), {
         title: book.volumeInfo.title,
         subtitle: book.volumeInfo.subtitle || null,
         description: book.volumeInfo.description || null,

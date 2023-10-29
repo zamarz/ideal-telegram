@@ -32,7 +32,6 @@ const MyBookList = () => {
       try {
         const reference = doc(db, "books", book.book_id);
         await deleteDoc(reference);
-        // The part above is not working - need to get the document reference somehow
         const filteredBooks = books.filter((b) => b.book_id !== book.book_id);
         setBooks(filteredBooks).then(() => {
           console.log("Book has been deleted successfully");
