@@ -7,9 +7,10 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "@utils/database";
 import { useUserAuth } from "./Provider";
 
-const BookCardUser = ({ book }) => {
+const BookCardUser = ({ book, deleteBook }) => {
   const user = useUserAuth();
 
+  //do we need this bit of code here? not adding, just viewing
   const addBook = async (e) => {
     e.preventDefault();
     //wasn't accepting description key below - doesn't load for some reason
@@ -51,7 +52,7 @@ const BookCardUser = ({ book }) => {
         <h3>Author: {book.author === undefined ? "Unknown" : book.author}</h3>
         <p>{book.description}</p>
         <Link href={book.booklink}>Learn more</Link>
-        <button onClick={addBook}>Add to your list</button>
+        <button onClick={deleteBook}>Delete this book from your list</button>
       </div>
     </div>
   );

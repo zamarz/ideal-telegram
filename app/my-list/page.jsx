@@ -2,7 +2,14 @@
 import BookCardUser from "@components/BookCardUser";
 import { useUserAuth } from "@components/Provider";
 import { useEffect, useState } from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import { db } from "@utils/database";
 
 const MyBookList = () => {
@@ -15,6 +22,26 @@ const MyBookList = () => {
   useEffect(() => {
     getBooks();
   }, []);
+  //might need to reload books here in useEffect to deal with delete - or maybe not
+
+  const deleteBook = async (book) => {
+    const hasConfirmed = confirm("Are you sure you want to delete this book?");
+
+    if (hasConfirmed) {
+      console.log(book);
+      try {
+        const reference = doc(db, "books", book.book_id);
+        await deleteDoc(reference);
+        // The part above is not working - need to get the document reference somehow
+        const filteredBooks = books.filter((b) => b.book_id !== book.book_id);
+        setBooks(filteredBooks).then(() => {
+          console.log("Book has been deleted successfully");
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   const getBooks = async () => {
     const q = query(
@@ -36,17 +63,20 @@ const MyBookList = () => {
     //   console.log(doc.id, " => ", doc.data());
     // });
   };
-
-  console.log(books);
   //not sure whether this will be an array - depends on how books come back
   //this page will hold a list of books that have been saved to a user's collection
 
   return (
     <section>
+      <h1>Your saved books</h1>
       {books.length > 0 ? (
         <div>
           {books.map((book) => (
-            <BookCardUser book={book} key={book.book_id} />
+            <BookCardUser
+              book={book}
+              key={book.book_id}
+              deleteBook={() => deleteBook(book)}
+            />
           ))}
         </div>
       ) : (
