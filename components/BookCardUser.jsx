@@ -34,8 +34,8 @@ const BookCardUser = ({ book, deleteBook }) => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal ">
+      <div className="outline p-5 px-6px  space-x-4  ">
         <Image
           src={
             book.bookimage === undefined
@@ -43,16 +43,28 @@ const BookCardUser = ({ book, deleteBook }) => {
               : book.bookimage
           }
           alt="Book thumbnail"
-          width={200}
-          height={300}
+          width={150}
+          height={250}
         />
-        <h2>{book.title}</h2>
-        <h3>{book.subtitle}</h3>
-        <h3>Published in {book.date}</h3>
+        <h2 className="text-gray-900 font-bold text-xl mb-2">{book.title}</h2>
+        <h3 className="text-gray-700 text-base">{book.subtitle}</h3>
+        <h3 className="text-gray-700 font-bold text-base">
+          Published: {book.date}
+        </h3>
         <h3>Author: {book.author === undefined ? "Unknown" : book.author}</h3>
-        <p>{book.description}</p>
-        <Link href={book.booklink}>Learn more</Link>
-        <button onClick={deleteBook}>Delete this book from your list</button>
+        <p className="my-5 line-clamp-3">{book.description}</p>
+        <Link
+          className="font-medium outline rounded px-9 py-7 my-9 mx-px bg-pink3"
+          href={book.booklink}
+        >
+          Learn more
+        </Link>
+        <button
+          className="font-medium outline rounded px-9 py-7 my-7 bg-pink1"
+          onClick={deleteBook}
+        >
+          Delete from list
+        </button>
       </div>
     </div>
   );

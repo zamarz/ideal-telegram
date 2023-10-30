@@ -8,7 +8,7 @@ const Nav = () => {
   const user = useUserAuth();
 
   return (
-    <nav className="flex-between w-full mb-16 pt-3 bg-pink1">
+    <nav className="flex-between w-full mb-16 pt-3 bg-pink1 font-medium ">
       {user.user ? (
         <div className="sm:flex hidden px-20 py-10 space-y-15 space-x-14 ml-30 place-content-center">
           <div className="flex gap-3 md:gap-5">

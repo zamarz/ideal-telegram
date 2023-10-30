@@ -66,10 +66,12 @@ const MyBookList = () => {
   //this page will hold a list of books that have been saved to a user's collection
 
   return (
-    <section>
-      <h1>Your saved books</h1>
+    <section className="w-full flex-center flex-col">
+      <h1 className="text-center  text-4xl font-bold tracking-wide">
+        Your saved books
+      </h1>
       {books.length > 0 ? (
-        <div>
+        <div className="">
           {books.map((book) => (
             <BookCardUser
               book={book}
@@ -80,7 +82,7 @@ const MyBookList = () => {
         </div>
       ) : (
         <div>
-          <p>
+          <p className="text-center  text-4xl font-bold tracking-wide">
             Your books will appear here once you have added them to your list
           </p>
         </div>

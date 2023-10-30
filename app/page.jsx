@@ -2,7 +2,7 @@ import Form from "@components/Form";
 
 const Home = () => {
   return (
-    <section className="w-full flex-center flex-col">
+    <section className="grid-rows-2">
       <h1 className="text-center  text-4xl font-bold tracking-wide">
         Discover new books with AI help
         <br className="max-md:hidden" />
