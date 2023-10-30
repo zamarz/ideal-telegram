@@ -67,24 +67,31 @@ const Form = () => {
 
   return (
     <section>
-      <div className="my-0 mx-auto max-w-3x1 text-center">
-        <h1>Search for book recommendations</h1>
-        <p>
-          Simply enter a term you want to search for and you will be shown
-          books. You can then add the books to your wishlist
+      <div className="text-center py-2 space-x-4 ">
+        <h1 className="py-3  text-2xl font-medium">
+          Search for book recommendations
+        </h1>
+        <p className=" text-lg ">
+          Simply enter a book prompt for OpenAI and you will see a list of books
+          which you can then add to your book list.
         </p>
 
-        <form onSubmit={handleSubmit}>
+        <form
+          className="py-7 px-6 w-full rounded-lg h-[200px] mt-2 p-3 text-lg text-gray-500 outline-0; "
+          onSubmit={handleSubmit}
+        >
           <label>
-            <span className="px-10 pb-10 text-left">Search here</span>
+            <span className="px-7">Search here</span>
             <textarea
+              className="outline text-pink4"
               onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Write a search term..."
+              placeholder="Find me science fiction books..."
               required
             ></textarea>
+            <br />
             <button
               type="submit"
-              className="bg-sky-600 hover:bg-sky-700 px-5 py-3 text-white rounded-lg"
+              className="font-medium outline rounded px-5 py-7"
             >
               Get books
             </button>
