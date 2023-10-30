@@ -1,4 +1,3 @@
-import AIBookFinder from "@components/AIBookFinder";
 import Form from "@components/Form";
 
 const Home = () => {
@@ -13,7 +12,6 @@ const Home = () => {
         Use this open-source tool to search for books and add them to a wishlist
       </p>
       <Form />
-      <AIBookFinder />
     </section>
   );
 };

@@ -38,9 +38,9 @@ const BookCardMain = ({ book }) => {
       <div>
         <Image
           src={
-            book.volumeInfo.imageLinks === undefined
-              ? "https://raw.githubusercontent.com/zamarz/ideal-telegram/f0a70526b762df20af6aa034af7505815971f8f1/public/assets/icons/bookstack.svg"
-              : book.volumeInfo.imageLinks.thumbnail
+            book.volumeInfo.imageLinks
+              ? book.volumeInfo.imageLinks.thumbnail
+              : "https://raw.githubusercontent.com/zamarz/ideal-telegram/f0a70526b762df20af6aa034af7505815971f8f1/public/assets/icons/bookstack.svg"
           }
           alt="Book thumbnail"
           width={200}
