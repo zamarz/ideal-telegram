@@ -11,15 +11,18 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { db } from "@utils/database";
+import Loading from "@components/Loading";
 
 const MyBookList = () => {
   const user = useUserAuth();
 
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   //need a useEffect at the start with a function
 
   useEffect(() => {
+    setLoading(true);
     getBooks();
   }, []);
   //might need to reload books here in useEffect to deal with delete - or maybe not
@@ -54,6 +57,7 @@ const MyBookList = () => {
     }));
 
     if (bookData) {
+      setLoading(false);
       return setBooks(bookData);
     }
     // querySnapshot.forEach((doc) => {
@@ -64,6 +68,10 @@ const MyBookList = () => {
   };
   //not sure whether this will be an array - depends on how books come back
   //this page will hold a list of books that have been saved to a user's collection
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <section className="w-full flex-center flex-col">

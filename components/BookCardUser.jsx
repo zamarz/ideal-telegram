@@ -54,6 +54,7 @@ const BookCardUser = ({ book, deleteBook }) => {
         <h3>Author: {book.author === undefined ? "Unknown" : book.author}</h3>
         <p className="my-5 line-clamp-3">{book.description}</p>
         <Link
+          target="_blank"
           className="font-medium outline rounded px-9 py-7 my-9 mx-px bg-pink3"
           href={book.booklink}
         >
@@ -69,8 +70,5 @@ const BookCardUser = ({ book, deleteBook }) => {
     </div>
   );
 };
-
-//might be able to reuse this component on the homepage as well as the my list page
-//description not showing for some reason
 
 export default BookCardUser;
