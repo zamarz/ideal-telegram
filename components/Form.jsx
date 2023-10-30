@@ -67,7 +67,7 @@ const Form = () => {
 
   return (
     <section>
-      <div>
+      <div className="my-0 mx-auto max-w-3x1 text-center">
         <h1>Search for book recommendations</h1>
         <p>
           Simply enter a term you want to search for and you will be shown
@@ -76,13 +76,18 @@ const Form = () => {
 
         <form onSubmit={handleSubmit}>
           <label>
-            <span>Search here</span>
+            <span className="px-10 pb-10 text-left">Search here</span>
             <textarea
               onChange={(e) => setPrompt(e.target.value)}
               placeholder="Write a search term..."
               required
             ></textarea>
-            <button type="submit">Get books</button>
+            <button
+              type="submit"
+              className="bg-sky-600 hover:bg-sky-700 px-5 py-3 text-white rounded-lg"
+            >
+              Get books
+            </button>
           </label>
         </form>
       </div>
