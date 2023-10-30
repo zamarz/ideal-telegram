@@ -2,10 +2,12 @@
 import { logIn } from "@utils/functions";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import Loading from "./Loading";
 
 const SignInUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const loggingIn = (e) => {
@@ -19,6 +21,10 @@ const SignInUser = () => {
       });
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div className="text-center py-2 space-x-4 bg-light-pink ">
       <form
@@ -26,28 +32,32 @@ const SignInUser = () => {
         onSubmit={loggingIn}
         name="signup-form"
       >
-        <p className="py-3  text-2xl font-medium">Log in</p>
-        <input
-          type="email"
-          id="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="email">Email</label>
-        <br />
-        <input
-          type="password"
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <br />
-        <button
-          className="font-medium outline rounded px-5 py-7 my-4"
-          type="submit"
-          id="signup-btn"
-        >
-          Log In
-        </button>
+        <p className="py-3  text-2xl font-medium">Sign in</p>
+        <div className="space-y-4">
+          <label htmlFor="email">Email: </label>
+          <input
+            type="email"
+            id="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <br />
+          <label htmlFor="password">Password: </label>
+          <input
+            type="password"
+            id="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <br />
+          <button
+            className="font-medium outline rounded px-5 py-7 my-4"
+            type="submit"
+            id="signup-btn"
+          >
+            Log In
+          </button>
+        </div>
       </form>
     </div>
   );
