@@ -17,16 +17,17 @@ const Form = () => {
   const main = async () => {
     const tailoredPrompt =
       prompt +
-      ". Find me book recommendations based on the previous sentence. Please provide eight recommendations as an array with each recommendation in a string containing the title of the book only. If there are spaces in the string please replace them with a +. Also, ensure the string is lower case and does not include punctuation or apostrophes. Do not include n backslash anywhere. If there is no prompt then just give me random popular books instead.";
+      ". Find me book recommendations based on the previous sentence. Please provide eight recommendations as an array with each recommendation in a string containing the title of the book only. If there are spaces in the string please replace them with a +. Also, ensure the string is lower case and does not include punctuation or apostrophes. Do not include n backslash anywhere. If there is no prompt then just give me random popular books instead. Lastly, make sure the books are different books.";
     console.log(tailoredPrompt);
-    const completion = await openai.chat.completions.create({
-      messages: [{ role: "system", content: tailoredPrompt }],
-      model: "gpt-3.5-turbo",
-    });
 
     try {
+      const completion = await openai.chat.completions.create({
+        messages: [{ role: "system", content: tailoredPrompt }],
+        model: "gpt-3.5-turbo",
+      });
       setApiResults(JSON.parse(completion.choices[0].message.content));
       console.log(completion.choices[0].message.content, "message");
+      console.log(apiResults, "in try in openai");
     } catch (error) {
       console.log(error);
     }
@@ -35,17 +36,13 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //have array of book recommendations
-    //need to put each recommendation through the api and save it to books in state
     try {
       await main();
       console.log(apiResults, "apiresults 1");
     } catch (error) {
       console.log(error);
     }
-    //this can go in this or somewhere else
 
-    //might need to push into here if it doesn't work
     console.log(apiResults, "apiresults 2");
     try {
       console.log(apiResults, "in try statement before Promise");
@@ -66,7 +63,7 @@ const Form = () => {
     }
   };
 
-  //need to set state back to normal after these calls are made
+  //need to set state back to normal after these calls are made?
 
   return (
     <section>

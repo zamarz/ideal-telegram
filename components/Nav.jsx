@@ -8,17 +8,19 @@ const Nav = () => {
   const user = useUserAuth();
 
   return (
-    <div>
+    <nav className="flex-between w-full mb-16 pt-3">
       {user.user ? (
-        <div>
-          <div>
-            <Link href="/">Home</Link>
+        <div className="sm:flex hidden">
+          <div className="flex gap-3 md:gap-5">
+            <Link href="/" className="black_btn">
+              Home
+            </Link>
           </div>
           <div>
             <Link href="/my-list">My Book List</Link>
           </div>
           <div>
-            <button type="button" onClick={logOut}>
+            <button type="button" className="outline_btn" onClick={logOut}>
               Sign Out
             </button>
           </div>
@@ -44,7 +46,7 @@ const Nav = () => {
           </div>
         </div>
       )}
-    </div>
+    </nav>
   );
 };
 
