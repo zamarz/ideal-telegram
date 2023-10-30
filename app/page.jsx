@@ -3,7 +3,7 @@ import Form from "@components/Form";
 const Home = () => {
   return (
     <section className="w-full flex-center flex-col">
-      <h1 className="text-center  text-4xl   font-bold tracking-wide">
+      <h1 className="text-center  text-4xl font-bold tracking-wide">
         Discover new books with AI help
         <br className="max-md:hidden" />
         <span className="text-center text-3xl font-medium">

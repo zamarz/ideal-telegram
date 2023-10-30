@@ -67,7 +67,7 @@ const Form = () => {
 
   return (
     <section>
-      <div className="text-center py-2 space-x-4 ">
+      <div className="text-center py-2 space-x-4 bg-light-pink ">
         <h1 className="py-3  text-2xl font-medium">
           Search for book recommendations
         </h1>
@@ -81,9 +81,9 @@ const Form = () => {
           onSubmit={handleSubmit}
         >
           <label>
-            <span className="px-7">Search here</span>
+            <span className="px-7 ">Search here:</span>
             <textarea
-              className="outline text-pink4"
+              className="outline text-pink4 px-8 py-3 "
               onChange={(e) => setPrompt(e.target.value)}
               placeholder="Find me science fiction books..."
               required
@@ -91,7 +91,7 @@ const Form = () => {
             <br />
             <button
               type="submit"
-              className="font-medium outline rounded px-5 py-7"
+              className="font-medium outline rounded px-5 py-7 my-4"
             >
               Get books
             </button>
