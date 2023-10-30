@@ -10,25 +10,23 @@ const Nav = () => {
   return (
     <nav className="flex-between w-full mb-16 pt-3">
       {user.user ? (
-        <div className="sm:flex hidden">
+        <div className="sm:flex hidden px-20 py-10 space-y-15 space-x-14 ml-30 place-content-center">
           <div className="flex gap-3 md:gap-5">
-            <Link href="/" className="black_btn">
-              Home
-            </Link>
+            <Link href="/">Home</Link>
           </div>
           <div>
             <Link href="/my-list">My Book List</Link>
-          </div>
-          <div>
-            <button type="button" className="outline_btn" onClick={logOut}>
-              Sign Out
-            </button>
           </div>
           <div>
             <p>
               {user.user.displayName ? user.user.displayName : user.user.email}{" "}
               is currently signed in
             </p>
+          </div>
+          <div>
+            <button type="button" className="outline_btn" onClick={logOut}>
+              Sign Out
+            </button>
           </div>
         </div>
       ) : (

@@ -2,14 +2,17 @@ import Form from "@components/Form";
 
 const Home = () => {
   return (
-    <section className="my-0 mx-auto max-w-3x1 text-center">
-      <h1 className="p-6 text-4x1">
+    <section className="w-full flex-center flex-col">
+      <h1 className="text-center  text-4xl   font-bold tracking-wide">
         Discover new books with AI help
-        <br />
-        <span>AI-Powered Book Recommendations</span>
+        <br className="max-md:hidden" />
+        <span className="text-center text-3xl font-medium">
+          AI-Powered Book Recommendations
+        </span>
       </h1>
-      <p>
-        Use this open-source tool to search for books and add them to a wishlist
+      <p className="text-center text-xl py-7 ">
+        Use this open-source tool powered by OpenAI to search for books and add
+        them to your wishlist
       </p>
       <Form />
     </section>

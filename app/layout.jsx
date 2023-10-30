@@ -12,7 +12,7 @@ const RootLayout = ({ children }) => {
     <html lang="en">
       <body>
         <UserAuthContextProvider>
-          <div>
+          <div className="main">
             <div />
           </div>
           <main>
