@@ -45,30 +45,41 @@ const Register = () => {
   console.log(error);
 
   return (
-    <div>
-      <form onSubmit={signUp} name="signup-form">
-        <input
-          type="email"
-          id="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="email">Email</label>
+    <div className="text-center py-2  bg-light-pink ">
+      <form
+        className="py-7 px-6 w-full rounded-lg h-[200px] mt-2 p-3 text-lg text-gray-500  "
+        onSubmit={signUp}
+        name="signup-form"
+      >
+        <p className="py-3  text-2xl font-medium">Register</p>
+        <div className="space-y-4">
+          <label htmlFor="email">Email: </label>
+          <input
+            type="email"
+            id="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br />
+          <label htmlFor="password">Password: </label>
+          <input
+            type="password"
+            id="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <br />
+          <label htmlFor="confirmPassword">Confirm Password: </label>
+          <input
+            type="password"
+            id="confirmPassword"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
         <br />
-        <input
-          type="password"
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <br />
-        <input
-          type="password"
-          id="confirmPassword"
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        <label htmlFor="confirmPassword">Confirm Password</label>
-        <br />
-        <button type="submit" id="signup-btn">
+        <button
+          className="font-medium outline rounded px-5 py-7 my-4"
+          type="submit"
+          id="signup-btn"
+        >
           Sign Up
         </button>
       </form>

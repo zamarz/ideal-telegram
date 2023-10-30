@@ -20,8 +20,13 @@ const SignInUser = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={loggingIn} name="signup-form">
+    <div className="text-center py-2 space-x-4 bg-light-pink ">
+      <form
+        className="py-7 px-6 w-full rounded-lg h-[200px] mt-2 p-3 text-lg text-gray-500  "
+        onSubmit={loggingIn}
+        name="signup-form"
+      >
+        <p className="py-3  text-2xl font-medium">Log in</p>
         <input
           type="email"
           id="email"
@@ -36,7 +41,11 @@ const SignInUser = () => {
         />
         <label htmlFor="password">Password</label>
         <br />
-        <button type="submit" id="signup-btn">
+        <button
+          className="font-medium outline rounded px-5 py-7 my-4"
+          type="submit"
+          id="signup-btn"
+        >
           Log In
         </button>
       </form>
