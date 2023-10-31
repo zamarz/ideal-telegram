@@ -7,7 +7,7 @@ const Home = () => {
         Discover new books with AI help
         <br className="max-md:hidden" />
       </h1>
-      <p className="text-center text-3xl  py-7 ">
+      <p className="text-center text-3xl py-7 ">
         Use this open-source tool powered by OpenAI to search for books and add
         them to your wishlist
       </p>

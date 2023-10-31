@@ -1,20 +1,21 @@
+import Image from "next/image";
 import BookCard from "./BookCardMain";
 
 const HomeBookList = ({ books }) => {
   return (
-    <div>
-      {books.length > 0 ? (
-        <div>
-          {books.map((book) => (
-            <BookCard key={book.id} book={book} />
-          ))}
-        </div>
-      ) : (
-        <div>
-          <p>Your book results will be shown here</p>
-        </div>
-      )}
-    </div>
+    <section className="w-full flex-center flex-col ">
+      <div className="columns-2 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 justify-between leading-normal ">
+        {books.length > 0 ? (
+          <div>
+            {books.map((book) => (
+              <BookCard key={book.id} book={book} />
+            ))}
+          </div>
+        ) : (
+          <div className="place-items-center"></div>
+        )}
+      </div>
+    </section>
   );
 };
 

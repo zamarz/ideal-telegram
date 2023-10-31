@@ -71,7 +71,7 @@ const Form = () => {
 
   return (
     <section>
-      <div className="text-center py-2 space-x-4 bg-light-pink ">
+      <div className="text-center py-2 space-x-4 bg-light-pink pb-9">
         <h1 className="py-3  text-2xl font-medium">
           Search for book recommendations
         </h1>

@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "@utils/database";
 import Loading from "@components/Loading";
+import Image from "next/image";
 
 const MyBookList = () => {
   const user = useUserAuth();
@@ -91,9 +92,13 @@ const MyBookList = () => {
         </div>
       ) : (
         <div>
-          <p className="text-center  text-4xl font-bold tracking-wide">
-            Your books will appear here once you have added them to your list
-          </p>
+          <Image
+            src="https://raw.githubusercontent.com/zamarz/ideal-telegram/f0a70526b762df20af6aa034af7505815971f8f1/public/assets/icons/bookstack.svg"
+            alt="logo"
+            width={30}
+            height={30}
+            className="object-contain"
+          />
         </div>
       )}
     </section>
