@@ -82,7 +82,7 @@ const MyBookList = () => {
       </h1>
       <div></div>
       {books.length > 0 ? (
-        <div className="columns-2 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 justify-between leading-normal ">
+        <div className="  gap-8  border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 justify-between leading-normal ">
           {books.map((book) => (
             <BookCardUser
               book={book}
