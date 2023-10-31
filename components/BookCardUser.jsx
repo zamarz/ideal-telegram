@@ -17,7 +17,6 @@ const BookCardUser = ({ book, deleteBook }) => {
     try {
       return await addDoc(collection(db, "books"), {
         title: book.volumeInfo.title,
-        subtitle: book.volumeInfo.subtitle || null,
         description: book.volumeInfo.description || null,
         date: book.volumeInfo.publishedDate,
         author: book.volumeInfo.authors[0] || null,
