@@ -3,7 +3,7 @@ import React from "react";
 
 const RegisterUser = () => {
   return (
-    <div>
+    <div className="flex justify-center">
       <Register />
     </div>
   );
