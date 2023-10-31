@@ -31,7 +31,8 @@ const Form = () => {
       console.log(parsedMessage, "parsedMessage");
       console.log(JSON.parse(completion.choices[0].message.content), "message");
       let { parsedBooks } = parsedMessage;
-      return setApiResults(parsedBooks);
+      //might need to rename the key?
+      setApiResults(parsedBooks);
     } catch (error) {
       console.log(error);
     }

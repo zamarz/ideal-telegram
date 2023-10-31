@@ -16,7 +16,6 @@ const BookCardMain = ({ book }) => {
     try {
       return await setDoc(doc(db, "books", book.id), {
         title: book.volumeInfo.title,
-        subtitle: book.volumeInfo.subtitle || null,
         description: book.volumeInfo.description || null,
         date: book.volumeInfo.publishedDate,
         author: book.volumeInfo.authors[0] || null,
@@ -47,7 +46,6 @@ const BookCardMain = ({ book }) => {
           height={300}
         />
         <h2>{book.volumeInfo.title}</h2>
-        <h3>{book.volumeInfo.subtitle}</h3>
         <h3>Published in {book.volumeInfo.publishedDate}</h3>
         <h3>
           Author:{" "}
