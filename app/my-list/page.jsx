@@ -74,12 +74,13 @@ const MyBookList = () => {
   }
 
   return (
-    <section className="w-full flex-center flex-col">
+    <section className="w-full flex-center flex-col ">
       <h1 className="text-center  text-4xl font-bold tracking-wide">
         Your saved books
       </h1>
+      <div></div>
       {books.length > 0 ? (
-        <div className="">
+        <div className="columns-2 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 justify-between leading-normal ">
           {books.map((book) => (
             <BookCardUser
               book={book}

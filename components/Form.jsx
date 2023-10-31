@@ -17,17 +17,21 @@ const Form = () => {
   const main = async () => {
     const tailoredPrompt =
       prompt +
-      ". Find me book recommendations based on the previous sentence. Please provide eight recommendations as an array with each recommendation in a string containing the title of the book only. If there are spaces in the string please replace them with a +. Also, ensure the string is lower case and does not include punctuation or apostrophes. Do not include n backslash anywhere. If there is no prompt then just give me random popular books instead. Lastly, make sure the books are different books.";
-    console.log(tailoredPrompt);
+      ". Provide a JSON object of an array of eight book recommendations based on the previous sentence with a key of 'books'. Each recommendation should be in a string containing the title of the book only. If there are spaces in each string, replace them with a '+'. String should be lower case and not include any kind of punctuation. Do not include n backslash anywhere. If the first sentence of this prompt doesn't make sense, provide eight random popular books instead. Also make sure each book in the array is a different book. This is an example of the format I'm looking for: '{ 'books': ['wind+in+the+willows', 'winnie+the+pooh', 'charlottes+web', 'mother+goose', 'the+twits', 'elmer', 'the_rainbow_fish', 'spot']}'";
 
     try {
       const completion = await openai.chat.completions.create({
         messages: [{ role: "system", content: tailoredPrompt }],
         model: "gpt-3.5-turbo",
       });
-      setApiResults(JSON.parse(completion.choices[0].message.content));
-      console.log(completion.choices[0].message.content, "message");
-      console.log(apiResults, "in try in openai");
+      console.log(completion.choices[0].message.content);
+      console.log(typeof completion.choices[0].message.content);
+      let message = completion.choices[0].message.content;
+      let parsedMessage = JSON.parse(message);
+      console.log(parsedMessage, "parsedMessage");
+      console.log(JSON.parse(completion.choices[0].message.content), "message");
+      let { parsedBooks } = parsedMessage;
+      return setApiResults(parsedBooks);
     } catch (error) {
       console.log(error);
     }
