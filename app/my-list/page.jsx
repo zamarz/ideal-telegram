@@ -92,13 +92,14 @@ const MyBookList = () => {
         </div>
       ) : (
         <div>
-          <Image
+          {/* <Image
             src="https://raw.githubusercontent.com/zamarz/ideal-telegram/f0a70526b762df20af6aa034af7505815971f8f1/public/assets/icons/bookstack.svg"
             alt="logo"
             width={30}
             height={30}
-            className="object-contain"
-          />
+            layout="responsive"
+            className="object-contain w-30 h-30"
+          /> */}
         </div>
       )}
     </section>

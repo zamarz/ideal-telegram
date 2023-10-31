@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <div className="flex justify-center">
       <div
-        class="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-pink2 rounded-full"
+        className="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-pink2 rounded-full"
         role="status"
         aria-label="loading"
       >
