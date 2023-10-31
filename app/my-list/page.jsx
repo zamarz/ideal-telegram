@@ -38,6 +38,7 @@ const MyBookList = () => {
         await deleteDoc(reference);
         const filteredBooks = books.filter((b) => b.book_id !== book.book_id);
         setBooks(filteredBooks).then(() => {
+          const hasDeleted = confirm("Book successfully deleted!");
           console.log("Book has been deleted successfully");
         });
       } catch (error) {

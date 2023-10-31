@@ -9,7 +9,7 @@ const Nav = () => {
   const user = useUserAuth();
 
   return (
-    <nav className="relative flex w-full items-center justify-between bg-pink1 py-2 text-neutral-600 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200 md:flex-wrap md:justify-start flex-between w-full mb-16 pt-3 font-medium">
+    <nav className="relative flex w-full items-center justify-between bg-pink1 py-4 text-neutral-600 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200 md:flex-wrap md:justify-start flex-between w-full mb-16 pt-4 px-4 font-medium space-x-6">
       <button
         className="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
         type="button"
@@ -58,24 +58,10 @@ const Nav = () => {
               data-te-navbar-nav-ref
             >
               <li className="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                <a
-                  className="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-                  href="/"
-                  data-te-nav-link-ref
-                >
-                  {" "}
-                  Home
-                </a>
+                <Link href="/">Home</Link>
               </li>
               <li className="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                <a
-                  className="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                  href="/my-list"
-                  data-te-nav-link-ref
-                >
-                  {" "}
-                  My Book List
-                </a>
+                <Link href="/my-list">My Book List</Link>
               </li>
               <li className="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                 <p>
@@ -83,7 +69,7 @@ const Nav = () => {
                     ? user.user.displayName
                     : user.user.email}{" "}
                   is currently signed in
-                </p>{" "}
+                </p>
               </li>
               <li className="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                 <button type="button" className="outline_btn" onClick={logOut}>
