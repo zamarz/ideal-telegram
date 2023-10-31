@@ -87,7 +87,7 @@ const Form = () => {
           <label>
             <span className="px-7 ">Search here:</span>
             <textarea
-              className="outline text-pink4 px-8 py-3 "
+              className="outline  px-8 py-3 "
               onChange={(e) => setPrompt(e.target.value)}
               placeholder="Find me science fiction books..."
               required
@@ -95,7 +95,7 @@ const Form = () => {
             <br />
             <button
               type="submit"
-              className="font-medium outline rounded px-5 py-7 my-4"
+              className="font-medium outline rounded px-5 py-7 my-4 "
             >
               Get books
             </button>
