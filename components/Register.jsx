@@ -43,7 +43,19 @@ const Register = () => {
     setPassword("");
     setConfirmPassword("");
   };
-  console.log(error);
+
+  if (error) {
+    const userError = confirm(
+      error + "Please enter all your information again."
+    );
+
+    if (userError) {
+      setError("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+    }
+  }
 
   return (
     <div className="mb-12 mx-3  ">
