@@ -4,13 +4,9 @@ import { googleSignIn, logOut } from "@utils/functions";
 import { useUserAuth } from "./Provider";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 
 const Nav = () => {
   const user = useUserAuth();
-  const [isOpen, setIsOpen] = useState(false);
-
-  // className="relative flex w-full items-center justify-between bg-pink1 py-4 text-neutral-600  hover:text-neutral-700 focus:text-neutral-700 md:flex-wrap md:justify-start flex-between w-full mb-16 pt-4 px-4 font-medium space-x-6"
 
   return (
     <nav className="bg-pink1">
