@@ -8,6 +8,7 @@ const Form = () => {
   const [books, setBooks] = useState([]);
   const [apiResults, setApiResults] = useState([]);
   const [prompt, setPrompt] = useState("");
+  const [loadingButton, setLoadingButton] = useState(false);
 
   const openai = new OpenAI({
     apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
@@ -54,6 +55,7 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoadingButton(true);
 
     try {
       await createNewBooks();
@@ -77,8 +79,10 @@ const Form = () => {
           console.log(books, "books");
         })
       );
+      setLoadingButton(false);
     } catch (error) {
       console.log(error);
+      setLoadingButton(false);
     }
   };
 
@@ -114,6 +118,16 @@ const Form = () => {
             >
               Get books
             </button>
+            {loadingButton ? (
+              <div
+                className="px-9 py-5 text-lg inline-block h-8 w-8 animate-bounce "
+                role="status"
+              >
+                <p className="">Finding your books...</p>
+              </div>
+            ) : (
+              <div></div>
+            )}
           </label>
         </form>
       </div>
