@@ -12,6 +12,7 @@ module.exports = {
       pink3: "#f8ad9d",
       pink4: "#fbc4ab",
       "light-pink": "#ffdab9",
+      green: "#fde68a",
     },
     screens: {
       sm: "480px",
