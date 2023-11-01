@@ -9,6 +9,8 @@ const SignInUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const router = useRouter();
 
   const loggingIn = (e) => {
@@ -18,9 +20,21 @@ const SignInUser = () => {
         router.push("/");
       })
       .catch((err) => {
-        console.log(err);
+        const errorCode = err.code;
+        const errorMessage = err.message;
+        setError(errorMessage);
       });
   };
+
+  if (error) {
+    const userError = confirm(error + "Please enter  your information again.");
+
+    if (userError) {
+      setError("");
+      setEmail("");
+      setPassword("");
+    }
+  }
 
   if (loading) {
     return <Loading />;
