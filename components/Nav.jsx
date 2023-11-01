@@ -90,7 +90,7 @@ const Nav = () => {
                     src={
                       user.user.photoURL
                         ? user.user.photoURL
-                        : "https://raw.githubusercontent.com/zamarz/ideal-telegram/f0a70526b762df20af6aa034af7505815971f8f1/public/assets/icons/bookstack.svg"
+                        : "https://github.com/zamarz/ideal-telegram/blob/main/public/assets/icons/icons8-cat-100.png?raw=true"
                     }
                     alt="User image"
                   />
