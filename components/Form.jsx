@@ -35,11 +35,6 @@ const Form = () => {
       return parsedBooks;
 
       // setApiResults(parsedBooks);
-
-      // console.log("Looks like parsedBooks isn't created at this stage");
-
-      // console.log(parsedMessage, "parsedMessage");
-      // console.log(JSON.parse(completion.choices[0].message.content), "message");
     } catch (error) {
       console.log(error);
       console.error("Error fetching message content");
@@ -137,5 +132,4 @@ const Form = () => {
     </section>
   );
 };
-//this is where users search for books throguh the Google API. The data is then passed to the Feed which might live in this
 export default Form;

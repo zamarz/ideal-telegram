@@ -2,35 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "@utils/database";
 import { useUserAuth } from "./Provider";
 
 const BookCardUser = ({ book, deleteBook }) => {
   const user = useUserAuth();
-
-  //do we need this bit of code here? not adding, just viewing
-  const addBook = async (e) => {
-    e.preventDefault();
-    //wasn't accepting description key below - doesn't load for some reason
-    try {
-      return await addDoc(collection(db, "books"), {
-        title: book.volumeInfo.title,
-        description: book.volumeInfo.description || null,
-        date: book.volumeInfo.publishedDate,
-        author: book.volumeInfo.authors[0] || null,
-        booklink: book.volumeInfo.infoLink,
-        bookimage: book.volumeInfo.imageLinks.thumbnail || null,
-        user_id: user.user.uid,
-      }).then(() => {
-        console.log("Book saved");
-        //will need to inform user of this on frontend
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">

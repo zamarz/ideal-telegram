@@ -3,8 +3,8 @@ import Form from "@components/Form";
 const Home = () => {
   return (
     <section className="grid-rows-2">
-      <h1 className="text-center  text-4xl font-bold tracking-wide">
-        Discover new books with AI help
+      <h1 className="text-center  text-4xl font-bold tracking-wide py-5">
+        Discover new books with AI
         <br className="max-md:hidden" />
       </h1>
       <p className="text-center text-3xl py-7 ">

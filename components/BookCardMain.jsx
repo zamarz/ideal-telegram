@@ -13,7 +13,6 @@ const BookCardMain = ({ book }) => {
 
   const addBook = async (e) => {
     e.preventDefault();
-    //wasn't accepting description key below - doesn't load for some reason
     try {
       return await setDoc(doc(db, "books", book.id), {
         title: book.volumeInfo.title,
@@ -27,7 +26,6 @@ const BookCardMain = ({ book }) => {
       }).then(() => {
         console.log("Book saved");
         setToggle(true);
-        //will need to inform user of this on frontend
       });
     } catch (error) {
       console.log(error);

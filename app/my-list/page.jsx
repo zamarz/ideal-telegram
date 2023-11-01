@@ -20,7 +20,7 @@ const MyBookList = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  //need a useEffect at the start with a function
+  //need a useEffect at the start with a function?
 
   useEffect(() => {
     setLoading(true);
@@ -62,14 +62,7 @@ const MyBookList = () => {
       setLoading(false);
       return setBooks(bookData);
     }
-    // querySnapshot.forEach((doc) => {
-    //   let bookInfo = doc.data();
-    //   setBooks([...bookInfo]);
-    //   console.log(doc.id, " => ", doc.data());
-    // });
   };
-  //not sure whether this will be an array - depends on how books come back
-  //this page will hold a list of books that have been saved to a user's collection
 
   if (loading) {
     return <Loading />;

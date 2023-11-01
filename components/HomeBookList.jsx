@@ -24,6 +24,4 @@ const HomeBookList = ({ books }) => {
   );
 };
 
-//this is the home page which will display a list of books depending on what has been searched. User can then add them to their own collection if they look good
-
 export default HomeBookList;
