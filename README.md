@@ -1,8 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Find the hosted version here: https://ideal-telegram-9nqu-adn0gsw3t-zach-marzouks-projects.vercel.app/
 
-## Getting Started
+I am currently working on this project.
 
-First, run the development server:
+## Tech stack and how it works
+
+This is a project where users can search for books through the Open AI API by passing a text prompt in the search box on the main page. The result of this is run through the Google Books API which returns books that are displayed on the page. If a user is signed into their account, they're able to add a book to their list and view them on a separate page.
+
+The project is built using React, NextJS, JS, Tailwind, and Firebase.
+
+# Getting Started
+
+To run this on your own local server, simply clone the repo with git clone + url and it should be saved on your system. Once you've installed the packages it comes with, run the development server with:
 
 ```bash
 npm run dev
@@ -16,21 +24,10 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Please note, in order for it to work properly you must create your own .env file and replace the API keys in the project with your own. You'll need a Firebase project for authentication and the database (unless you modify the project for your own authentication and database needs). Lastly, you'll also need an OpenAI API key which you can obtain by signing up on the organisation's page. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Node.js
 
-## Learn More
+This project was created using:
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+$ node -v | v20.2.0
