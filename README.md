@@ -29,5 +29,6 @@ Please note, in order for it to work properly you must create your own .env file
 Node.js
 
 This project was created using:
-
+```
 $ node -v | v20.2.0
+```
