@@ -1,4 +1,4 @@
-Find the hosted version here: https://ideal-telegram-9nqu-adn0gsw3t-zach-marzouks-projects.vercel.app/
+Find the hosted version here: https://ideal-telegram-9nqu-zach-marzouks-projects.vercel.app/
 
 I am currently working on this project.
 
