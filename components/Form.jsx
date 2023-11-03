@@ -109,7 +109,7 @@ const Form = () => {
             <br />
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-7 rounded"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-7 rounded md: mt-6"
             >
               Get books
             </button>

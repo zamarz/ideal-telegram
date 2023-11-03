@@ -8,7 +8,7 @@ const BookCardUser = ({ book, deleteBook }) => {
   const user = useUserAuth();
 
   return (
-    <div className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+    <div className="md: mt-6 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
       <div className="outline p-6 px-6px  space-x-4  ">
         <Image
           src={
@@ -38,7 +38,7 @@ const BookCardUser = ({ book, deleteBook }) => {
           </button>
         </Link>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-7 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-7 rounded md: mt-6"
           onClick={deleteBook}
         >
           Delete from list

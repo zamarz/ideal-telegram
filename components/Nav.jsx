@@ -11,8 +11,6 @@ const Nav = () => {
   const user = useUserAuth();
   const [showMobileMenu, setshowMobileMenu] = useState(false);
 
-  console.log(showMobileMenu);
-
   return (
     <nav className="bg-pink1">
       {user.user ? (
