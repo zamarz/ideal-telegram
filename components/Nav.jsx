@@ -4,9 +4,13 @@ import { googleSignIn, logOut } from "@utils/functions";
 import { useUserAuth } from "./Provider";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const Nav = () => {
   const user = useUserAuth();
+  const [showMobileMenu, setshowMobileMenu] = useState(false);
+
+  console.log(showMobileMenu);
 
   return (
     <nav className="bg-pink1">
@@ -68,15 +72,19 @@ const Nav = () => {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  <p>
+                  <p className="block px-3 py-2 rounded-md text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">
                     {" "}
                     <Link href="/">Home</Link>
                   </p>
-                  <p>
+                  <p className="block px-3 py-2 rounded-md text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">
                     {" "}
                     <Link href="/my-list">My Book List</Link>
                   </p>
-                  <button type="button" onClick={logOut}>
+                  <button
+                    className="block px-3 py-2 rounded-md text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700"
+                    type="button"
+                    onClick={logOut}
+                  >
                     Sign Out
                   </button>
                 </div>
@@ -107,8 +115,7 @@ const Nav = () => {
               <button
                 type="button"
                 className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
+                onClick={() => setshowMobileMenu(!showMobileMenu)}
               >
                 <span className="absolute -inset-0.5"></span>
                 <span className="sr-only">Open main menu</span>
@@ -155,17 +162,18 @@ const Nav = () => {
                   />
                 </Link>
               </div>
+
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  <p>
+                  <p className="block px-3 py-2 rounded-md text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">
                     {" "}
                     <Link href="/">Home</Link>
                   </p>
-                  <p>
+                  <p className="block px-3 py-2 rounded-md text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">
                     {" "}
                     <Link href="/sign-in">Sign In</Link>
                   </p>
-                  <p>
+                  <p className="block px-3 py-2 rounded-md text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">
                     {" "}
                     <Link href="/register">Register</Link>
                   </p>
@@ -174,7 +182,7 @@ const Nav = () => {
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <div className="relative ml-3">
-                <div className="px-6 sm:px-0 max-w-sm">
+                <div className="px-6 sm:px-0 max-w-sm hidden md:block">
                   <button
                     onClick={googleSignIn}
                     type="button"
@@ -195,7 +203,7 @@ const Nav = () => {
                         d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
                       ></path>
                     </svg>
-                    Sign in with Google<div></div>
+                    Sign in with Google
                   </button>
                 </div>
               </div>
