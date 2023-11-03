@@ -5,6 +5,7 @@ import { useUserAuth } from "./Provider";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import Menu from "./Menu";
 
 const Nav = () => {
   const user = useUserAuth();
@@ -211,6 +212,7 @@ const Nav = () => {
           </div>
         </div>
       )}
+      {showMobileMenu && <Menu />}
     </nav>
   );
 };
