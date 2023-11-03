@@ -42,7 +42,6 @@ const Form = () => {
 
     try {
       const aiBooks = await main();
-      console.log(aiBooks, "aibooks");
 
       await Promise.all(
         aiBooks.map(async (apiresult) => {
@@ -51,9 +50,7 @@ const Form = () => {
           );
           const booksData = await res.json();
           const { items } = booksData;
-          console.log(items, "items");
           setBooks((prevBooks) => [...prevBooks, ...items]);
-          console.log(books, "books");
         })
       );
       setLoadingButton(false);
