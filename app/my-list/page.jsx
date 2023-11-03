@@ -20,13 +20,10 @@ const MyBookList = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  //need a useEffect at the start with a function?
-
   useEffect(() => {
     setLoading(true);
     getBooks();
   }, []);
-  //might need to reload books here in useEffect to deal with delete - or maybe not
 
   const deleteBook = async (book) => {
     const hasConfirmed = confirm("Are you sure you want to delete this book?");
@@ -85,16 +82,7 @@ const MyBookList = () => {
           ))}
         </div>
       ) : (
-        <div>
-          {/* <Image
-            src="https://raw.githubusercontent.com/zamarz/ideal-telegram/f0a70526b762df20af6aa034af7505815971f8f1/public/assets/icons/bookstack.svg"
-            alt="logo"
-            width={30}
-            height={30}
-            layout="responsive"
-            className="object-contain w-30 h-30"
-          /> */}
-        </div>
+        <div></div>
       )}
     </section>
   );

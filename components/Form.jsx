@@ -6,7 +6,6 @@ import OpenAI from "openai";
 
 const Form = () => {
   const [books, setBooks] = useState([]);
-  const [apiResults, setApiResults] = useState([]);
   const [prompt, setPrompt] = useState("");
   const [loadingButton, setLoadingButton] = useState(false);
 
@@ -25,27 +24,16 @@ const Form = () => {
         messages: [{ role: "system", content: tailoredPrompt }],
         model: "gpt-3.5-turbo",
       });
-      console.log(completion.choices[0].message.content);
-      console.log(typeof completion.choices[0].message.content);
+
       let message = completion.choices[0].message.content;
       let parsedMessage = await JSON.parse(message);
 
       let { parsedBooks } = await parsedMessage;
-      console.log(parsedBooks, "parsedBooks");
       return parsedBooks;
-
-      // setApiResults(parsedBooks);
     } catch (error) {
       console.log(error);
       console.error("Error fetching message content");
     }
-  };
-
-  //change to using then statements
-
-  const createNewBooks = async () => {
-    const newBooks = await main();
-    setApiResults(newBooks);
   };
 
   const handleSubmit = async (e) => {
@@ -53,17 +41,11 @@ const Form = () => {
     setLoadingButton(true);
 
     try {
-      await createNewBooks();
-      console.log(apiResults, "apiresults 1");
-    } catch (error) {
-      console.log(error);
-    }
+      const aiBooks = await main();
+      console.log(aiBooks, "aibooks");
 
-    console.log(apiResults, "apiresults 2");
-    try {
-      console.log(apiResults, "in try statement before Promise");
       await Promise.all(
-        apiResults.map(async (apiresult) => {
+        aiBooks.map(async (apiresult) => {
           const res = await fetch(
             `https://www.googleapis.com/books/v1/volumes?q=${apiresult}&maxResults=1&key=${process.env.NEXT_PUBLIC_FIREBASE_API}`
           );
@@ -80,8 +62,6 @@ const Form = () => {
       setLoadingButton(false);
     }
   };
-
-  //need to set state back to normal after these calls are made?
 
   return (
     <section>

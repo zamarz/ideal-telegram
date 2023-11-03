@@ -17,11 +17,6 @@ const UserAuthContextProvider = ({ children }) => {
   useEffect(() => {
     const userLoggedIn = onAuthStateChanged(auth, (currentuser) => {
       setUser(currentuser);
-      // if (currentuser) {
-      //   console.log(currentuser.email + " is logged in!");
-      // } else {
-      //   console.log("User is logged out!");
-      // }
     });
     return () => {
       userLoggedIn();
