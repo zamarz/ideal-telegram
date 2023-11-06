@@ -8,8 +8,8 @@ const BookCardUser = ({ book, deleteBook }) => {
   const user = useUserAuth();
 
   return (
-    <div className="md: mt-6 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-      <div className="outline p-6 px-6px  space-x-4  ">
+    <div className="mx-20 md: mt-6 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+      <div className="outline p-6 px-6px space-x-4 ">
         <Image
           src={
             book.bookimage === undefined
