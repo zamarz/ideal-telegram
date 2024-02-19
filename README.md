@@ -1,7 +1,5 @@
 Find the hosted version here: https://ideal-telegram-9nqu-zach-marzouks-projects.vercel.app/
 
-I am currently working on this project.
-
 ## Tech stack and how it works
 
 This is a project where users can search for books through the Open AI API by passing a text prompt in the search box on the main page. The result of this is run through the Google Books API which returns books that are displayed on the page. If a user is signed into their account, they're able to add a book to their list and view them on a separate page.
